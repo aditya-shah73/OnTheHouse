@@ -58,10 +58,5 @@ class SignUpViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        //        if let nvc = segue.destination as? UINavigationController{
-        //            if let homeVC = nvc.visibleViewController as? HomeViewController{
-        //                //send data
-        //            }
-        //        }
     }
 }

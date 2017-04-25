@@ -1,0 +1,340 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C30A71821EA69D45005933B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A71811EA69D45005933B0 /* AppDelegate.swift */; };
+		C30A71841EA69D45005933B0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C30A71831EA69D45005933B0 /* LoginViewController.swift */; };
+		C30A71871EA69D45005933B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30A71851EA69D45005933B0 /* Main.storyboard */; };
+		C30A71891EA69D45005933B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C30A71881EA69D45005933B0 /* Assets.xcassets */; };
+		C30A718C1EA69D45005933B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C30A718A1EA69D45005933B0 /* LaunchScreen.storyboard */; };
+		C31EBF371EAB514B00F2BCE1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31EBF361EAB514B00F2BCE1 /* SignUpViewController.swift */; };
+		C36DC71E1EAACAC000A5311C /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36DC71D1EAACAC000A5311C /* AccountViewController.swift */; };
+		C36DC7201EAADF4F00A5311C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36DC71F1EAADF4F00A5311C /* SettingsViewController.swift */; };
+		C36DC7221EAADF6D00A5311C /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36DC7211EAADF6D00A5311C /* HistoryViewController.swift */; };
+		C36DC7241EAADF9000A5311C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36DC7231EAADF9000A5311C /* HomeViewController.swift */; };
+		C36DC7261EAAE14E00A5311C /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36DC7251EAAE14E00A5311C /* RemindersViewController.swift */; };
+		C36DC7281EAAE16800A5311C /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36DC7271EAAE16800A5311C /* GroupsViewController.swift */; };
+		C36DC72E1EAAEB8400A5311C /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36DC72D1EAAEB8400A5311C /* EventsViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C30A717E1EA69D45005933B0 /* OnTheHouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheHouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C30A71811EA69D45005933B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C30A71831EA69D45005933B0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C30A71861EA69D45005933B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C30A71881EA69D45005933B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C30A718B1EA69D45005933B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C30A718D1EA69D45005933B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C31EBF361EAB514B00F2BCE1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		C36DC71D1EAACAC000A5311C /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		C36DC71F1EAADF4F00A5311C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C36DC7211EAADF6D00A5311C /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		C36DC7231EAADF9000A5311C /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C36DC7251EAAE14E00A5311C /* RemindersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
+		C36DC7271EAAE16800A5311C /* GroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
+		C36DC72D1EAAEB8400A5311C /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsViewController.swift; path = GroupPay/EventsViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C30A717B1EA69D45005933B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C30A71751EA69D45005933B0 = {
+			isa = PBXGroup;
+			children = (
+				C36DC72D1EAAEB8400A5311C /* EventsViewController.swift */,
+				C30A71801EA69D45005933B0 /* OnTheHouse */,
+				C30A717F1EA69D45005933B0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C30A717F1EA69D45005933B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C30A717E1EA69D45005933B0 /* OnTheHouse.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C30A71801EA69D45005933B0 /* OnTheHouse */ = {
+			isa = PBXGroup;
+			children = (
+				C30A71811EA69D45005933B0 /* AppDelegate.swift */,
+				C30A71831EA69D45005933B0 /* LoginViewController.swift */,
+				C30A71851EA69D45005933B0 /* Main.storyboard */,
+				C31EBF361EAB514B00F2BCE1 /* SignUpViewController.swift */,
+				C36DC7271EAAE16800A5311C /* GroupsViewController.swift */,
+				C36DC7231EAADF9000A5311C /* HomeViewController.swift */,
+				C36DC7251EAAE14E00A5311C /* RemindersViewController.swift */,
+				C36DC71D1EAACAC000A5311C /* AccountViewController.swift */,
+				C36DC7211EAADF6D00A5311C /* HistoryViewController.swift */,
+				C36DC71F1EAADF4F00A5311C /* SettingsViewController.swift */,
+				C30A71881EA69D45005933B0 /* Assets.xcassets */,
+				C30A718A1EA69D45005933B0 /* LaunchScreen.storyboard */,
+				C30A718D1EA69D45005933B0 /* Info.plist */,
+			);
+			name = OnTheHouse;
+			path = GroupPay;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C30A717D1EA69D45005933B0 /* OnTheHouse */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C30A71901EA69D45005933B0 /* Build configuration list for PBXNativeTarget "OnTheHouse" */;
+			buildPhases = (
+				C30A717A1EA69D45005933B0 /* Sources */,
+				C30A717B1EA69D45005933B0 /* Frameworks */,
+				C30A717C1EA69D45005933B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OnTheHouse;
+			productName = GroupPay;
+			productReference = C30A717E1EA69D45005933B0 /* OnTheHouse.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C30A71761EA69D45005933B0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = CMPE137;
+				TargetAttributes = {
+					C30A717D1EA69D45005933B0 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = C30A71791EA69D45005933B0 /* Build configuration list for PBXProject "OnTheHouse" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C30A71751EA69D45005933B0;
+			productRefGroup = C30A717F1EA69D45005933B0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C30A717D1EA69D45005933B0 /* OnTheHouse */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C30A717C1EA69D45005933B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C30A718C1EA69D45005933B0 /* LaunchScreen.storyboard in Resources */,
+				C30A71891EA69D45005933B0 /* Assets.xcassets in Resources */,
+				C30A71871EA69D45005933B0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C30A717A1EA69D45005933B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C30A71841EA69D45005933B0 /* LoginViewController.swift in Sources */,
+				C36DC7261EAAE14E00A5311C /* RemindersViewController.swift in Sources */,
+				C30A71821EA69D45005933B0 /* AppDelegate.swift in Sources */,
+				C36DC71E1EAACAC000A5311C /* AccountViewController.swift in Sources */,
+				C31EBF371EAB514B00F2BCE1 /* SignUpViewController.swift in Sources */,
+				C36DC7281EAAE16800A5311C /* GroupsViewController.swift in Sources */,
+				C36DC7221EAADF6D00A5311C /* HistoryViewController.swift in Sources */,
+				C36DC7201EAADF4F00A5311C /* SettingsViewController.swift in Sources */,
+				C36DC7241EAADF9000A5311C /* HomeViewController.swift in Sources */,
+				C36DC72E1EAAEB8400A5311C /* EventsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C30A71851EA69D45005933B0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C30A71861EA69D45005933B0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C30A718A1EA69D45005933B0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C30A718B1EA69D45005933B0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C30A718E1EA69D45005933B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C30A718F1EA69D45005933B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C30A71911EA69D45005933B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GroupPay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.project.GroupPay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		C30A71921EA69D45005933B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GroupPay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.project.GroupPay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C30A71791EA69D45005933B0 /* Build configuration list for PBXProject "OnTheHouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C30A718E1EA69D45005933B0 /* Debug */,
+				C30A718F1EA69D45005933B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C30A71901EA69D45005933B0 /* Build configuration list for PBXNativeTarget "OnTheHouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C30A71911EA69D45005933B0 /* Debug */,
+				C30A71921EA69D45005933B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C30A71761EA69D45005933B0 /* Project object */;
+}

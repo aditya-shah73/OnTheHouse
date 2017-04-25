@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-807" y="137"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OnTheHouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="OnTheHouse" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -138,10 +138,10 @@
             </objects>
             <point key="canvasLocation" x="2162" y="144"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="2FT-aV-5hg">
             <objects>
-                <viewController id="DV1-yS-j5e" sceneMemberID="viewController">
+                <viewController id="DV1-yS-j5e" customClass="SignUpViewController" customModule="OnTheHouse" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j6a-F2-9fC"/>
                         <viewControllerLayoutGuide type="bottom" id="VzM-Ie-Z1D"/>
@@ -247,6 +247,7 @@
                                     <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="registerButtonTapped:" destination="DV1-yS-j5e" eventType="touchUpInside" id="NUO-Nk-Fxc"/>
                                     <segue destination="RAg-Hd-Tnd" kind="show" id="yiz-UB-Nlq"/>
                                 </connections>
                             </button>
@@ -267,6 +268,14 @@
                             <constraint firstItem="AwJ-5D-tUV" firstAttribute="top" secondItem="j6a-F2-9fC" secondAttribute="bottom" constant="538" id="vDU-i2-Qjy"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="_confirmpassword" destination="iTM-gK-4jC" id="1Zy-mu-YVn"/>
+                        <outlet property="_email" destination="lto-ct-4c1" id="2kw-aB-Yak"/>
+                        <outlet property="_firstname" destination="GyL-mF-Bgz" id="r1o-X3-9Ly"/>
+                        <outlet property="_lastname" destination="bIu-kJ-zmZ" id="84O-gK-Ujb"/>
+                        <outlet property="_password" destination="eXx-Xg-H1A" id="uaw-8W-BfQ"/>
+                        <outlet property="_username" destination="ZUh-iF-f9Q" id="qR2-if-a2O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YNT-IT-NIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -274,6 +283,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ek9-zw-YhJ"/>
+        <segue reference="yiz-UB-Nlq"/>
     </inferredMetricsTieBreakers>
 </document>

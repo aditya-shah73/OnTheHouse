@@ -7,13 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class SignUpViewController: UIViewController {
     
     @IBOutlet weak var _firstname: UITextField!
-    @IBOutlet weak var _lastname: UITextField!
     @IBOutlet weak var _email: UITextField!
-    @IBOutlet weak var _username: UITextField!
     @IBOutlet weak var _password: UITextField!
     @IBOutlet weak var _confirmpassword: UITextField!
     
@@ -26,11 +25,10 @@ class SignUpViewController: UIViewController {
         let userEmail = _email.text!
         let userPass = _password.text!
         let userPassConfirm = _confirmpassword.text!
-        let userName = _username.text!
         let userFirst = _firstname.text!
-        let userLast = _lastname.text!
+        
         if(identifier == "CreateUserSegue"){
-            if ((userEmail.isEmpty)||(userPass.isEmpty)||(userName.isEmpty)||(userLast.isEmpty)||(userFirst.isEmpty)||(userPassConfirm.isEmpty)){
+            if ((userEmail.isEmpty)||(userPass.isEmpty)||(userFirst.isEmpty)||(userPassConfirm.isEmpty)){
                 //display error message
                 displayAlert(userMessage: "All fields are required")
                 return false;
@@ -40,6 +38,7 @@ class SignUpViewController: UIViewController {
                 displayAlert(userMessage: "Passwords do not match")
                 return false
             }
+            
         }
         return true
         

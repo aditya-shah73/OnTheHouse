@@ -14,6 +14,7 @@
 		C3DD0BEC1EB00B2C0040DF9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3DD0BEA1EB00B2C0040DF9E /* LaunchScreen.storyboard */; };
 		C3DD0BF41EB00DCF0040DF9E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DD0BF31EB00DCF0040DF9E /* SignUpViewController.swift */; };
 		C3DD0BF61EB00DF60040DF9E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DD0BF51EB00DF60040DF9E /* LoginViewController.swift */; };
+		C3DD0BFA1EB092880040DF9E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C3DD0BF91EB092880040DF9E /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		C3DD0BED1EB00B2C0040DF9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3DD0BF31EB00DCF0040DF9E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		C3DD0BF51EB00DF60040DF9E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C3DD0BF91EB092880040DF9E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CC111E4A0605DAAAA1758A69 /* Pods-OnTheHouse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheHouse.release.xcconfig"; path = "Pods/Target Support Files/Pods-OnTheHouse/Pods-OnTheHouse.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +89,7 @@
 				C3DD0BE81EB00B2C0040DF9E /* Assets.xcassets */,
 				C3DD0BEA1EB00B2C0040DF9E /* LaunchScreen.storyboard */,
 				C3DD0BED1EB00B2C0040DF9E /* Info.plist */,
+				C3DD0BF91EB092880040DF9E /* GoogleService-Info.plist */,
 			);
 			path = OnTheHouse;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3DD0BEC1EB00B2C0040DF9E /* LaunchScreen.storyboard in Resources */,
+				C3DD0BFA1EB092880040DF9E /* GoogleService-Info.plist in Resources */,
 				C3DD0BE91EB00B2C0040DF9E /* Assets.xcassets in Resources */,
 				C3DD0BE71EB00B2C0040DF9E /* Main.storyboard in Resources */,
 			);

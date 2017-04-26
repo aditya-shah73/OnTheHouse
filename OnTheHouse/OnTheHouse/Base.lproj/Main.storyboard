@@ -39,18 +39,26 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ljx-hC-EDg">
                                 <rect key="frame" x="148" y="426" width="74" height="43"/>
+                                <color key="backgroundColor" red="0.45541054009999998" green="0.74837774040000005" blue="0.83259946110000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="74" id="4mN-Rf-Grj"/>
                                     <constraint firstAttribute="height" constant="43" id="gt8-WF-Ft6"/>
                                 </constraints>
-                                <state key="normal" title="Login"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="RAg-Hd-Tnd" kind="show" id="Ek9-zw-YhJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0aa-nl-IN9">
                                 <rect key="frame" x="148" y="477" width="75" height="47"/>
-                                <state key="normal" title="Sign Up"/>
+                                <color key="backgroundColor" red="0.45541054010391235" green="0.74837774038314819" blue="0.8325994610786438" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="DV1-yS-j5e" kind="show" id="Trf-Ce-2jp"/>
                                 </connections>
@@ -87,6 +95,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zQe-52-OI3" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="85.5" y="562" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="BLY-8I-pD1"/>
+                                    <constraint firstAttribute="height" constant="50" id="mwS-Nx-ov0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="FB LOGIN"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -95,8 +112,10 @@
                             <constraint firstItem="0aa-nl-IN9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="457" id="NCs-IV-gGn"/>
                             <constraint firstItem="C9M-3S-3Yt" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="207" id="QBB-bm-xzK"/>
                             <constraint firstItem="DCE-8f-lmf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SjC-8v-Srn"/>
+                            <constraint firstItem="zQe-52-OI3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-2" id="Wi8-N8-yFE"/>
                             <constraint firstItem="0aa-nl-IN9" firstAttribute="width" secondItem="Ljx-hC-EDg" secondAttribute="width" constant="1" id="ZOE-DE-BoH"/>
                             <constraint firstItem="Ljx-hC-EDg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-2.5" id="evZ-uh-uq6"/>
+                            <constraint firstItem="zQe-52-OI3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="542" id="h86-eI-goh"/>
                             <constraint firstItem="C9M-3S-3Yt" firstAttribute="top" secondItem="Ux6-V6-j6P" secondAttribute="bottom" constant="8" symbolic="YES" id="j0a-1p-tHD"/>
                             <constraint firstItem="C9M-3S-3Yt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lDP-wB-qWS"/>
                             <constraint firstItem="0aa-nl-IN9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-2" id="nUy-SB-0Jv"/>
@@ -108,6 +127,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jMI-za-98H"/>
+                    <connections>
+                        <outlet property="loginButton" destination="zQe-52-OI3" id="w9l-8J-3Rj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -161,7 +183,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="egP-sy-MJY">
-                                <rect key="frame" x="62" y="141" width="250" height="369"/>
+                                <rect key="frame" x="62" y="97" width="250" height="369"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1B-fJ-tMf">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="20.5"/>
@@ -241,13 +263,13 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGN UP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ynj-vL-PuH">
-                                <rect key="frame" x="148" y="83" width="78" height="36.5"/>
+                                <rect key="frame" x="148" y="39" width="78" height="36.5"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ouk-Ch-rJ4">
-                                <rect key="frame" x="139" y="551" width="96" height="34"/>
+                                <rect key="frame" x="139" y="507" width="96" height="34"/>
                                 <color key="backgroundColor" red="0.55045866970000001" green="0.93528223040000003" blue="0.89173525570000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="96" id="CiG-El-gwT"/>
@@ -262,7 +284,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AwJ-5D-tUV">
-                                <rect key="frame" x="74" y="602" width="226" height="30"/>
+                                <rect key="frame" x="74" y="558" width="226" height="30"/>
                                 <state key="normal" title="Already have an account? Log in."/>
                             </button>
                         </subviews>

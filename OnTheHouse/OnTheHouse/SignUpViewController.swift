@@ -16,6 +16,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var _email: UITextField!
     @IBOutlet weak var _password: UITextField!
     @IBOutlet weak var _confirmpassword: UITextField!
+    @IBOutlet var _username: UITextField!
     
 
     override func viewDidLoad() {

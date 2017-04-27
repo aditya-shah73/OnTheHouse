@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class SignUpViewController: UIViewController {
     
@@ -17,9 +18,34 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var _confirmpassword: UITextField!
     
 
-    @IBAction func registerButtonTapped(_ sender: Any) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
     }
+    
+    @IBAction func registerTapped(_ sender: Any) {
+        guard let email = _email.text, let password = _password.text else{
+            self.displayAlert(userMessage: "All fields are required")
+            return
+        }
+        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
+            if error == nil{
+                self.performSegue(withIdentifier: "signup", sender: nil)
+            }
+            else{
+                FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error) in
+                    if error != nil {
+                        print(error ?? "")
+                    }
+                    else{
+                        self.performSegue(withIdentifier: "signup", sender: nil)
+                    }
+                })
+            }
+        })
+
+    }
+
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         let userEmail = _email.text!
@@ -39,6 +65,7 @@ class SignUpViewController: UIViewController {
                 return false
             }
             
+            
         }
         return true
         
@@ -53,7 +80,6 @@ class SignUpViewController: UIViewController {
         
         self.present(alert, animated: true, completion:nil)
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

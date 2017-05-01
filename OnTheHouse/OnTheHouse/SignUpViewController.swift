@@ -85,4 +85,7 @@ class SignUpViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
+    @IBAction func backToLoginPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }

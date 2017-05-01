@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		01424CCF155CE41BC7B6F49D /* Pods_OnTheHouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C338917DF5A9D86378492301 /* Pods_OnTheHouse.framework */; };
 		C318452C1EB1616E00978010 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C318452B1EB1616E00978010 /* MapKit.framework */; };
-		C318452E1EB1669700978010 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318452D1EB1669700978010 /* PostViewController.swift */; };
+		C318452E1EB1669700978010 /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318452D1EB1669700978010 /* EditPostViewController.swift */; };
 		C31845301EB1703000978010 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318452F1EB1703000978010 /* AccountViewController.swift */; };
+		C37530111EB70B950033C3A0 /* Annotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37530101EB70B950033C3A0 /* Annotations.swift */; };
+		C37530131EB70CA30033C3A0 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37530121EB70CA30033C3A0 /* PostViewController.swift */; };
 		C3DD0BE21EB00B2C0040DF9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DD0BE11EB00B2C0040DF9E /* AppDelegate.swift */; };
 		C3DD0BE71EB00B2C0040DF9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3DD0BE51EB00B2C0040DF9E /* Main.storyboard */; };
 		C3DD0BE91EB00B2C0040DF9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3DD0BE81EB00B2C0040DF9E /* Assets.xcassets */; };
@@ -23,9 +25,11 @@
 /* Begin PBXFileReference section */
 		C131136DF4F310B98767CB6E /* Pods-OnTheHouse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheHouse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OnTheHouse/Pods-OnTheHouse.debug.xcconfig"; sourceTree = "<group>"; };
 		C318452B1EB1616E00978010 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		C318452D1EB1669700978010 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		C318452D1EB1669700978010 /* EditPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
 		C318452F1EB1703000978010 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		C338917DF5A9D86378492301 /* Pods_OnTheHouse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnTheHouse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C37530101EB70B950033C3A0 /* Annotations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotations.swift; sourceTree = "<group>"; };
+		C37530121EB70CA30033C3A0 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		C3DD0BDE1EB00B2C0040DF9E /* OnTheHouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheHouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3DD0BE11EB00B2C0040DF9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3DD0BE61EB00B2C0040DF9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -94,12 +98,14 @@
 				C3DD0BE51EB00B2C0040DF9E /* Main.storyboard */,
 				C3DD0BF51EB00DF60040DF9E /* LoginViewController.swift */,
 				C3DD0BF31EB00DCF0040DF9E /* SignUpViewController.swift */,
-				C318452D1EB1669700978010 /* PostViewController.swift */,
+				C318452D1EB1669700978010 /* EditPostViewController.swift */,
 				C318452F1EB1703000978010 /* AccountViewController.swift */,
 				C3DD0BE81EB00B2C0040DF9E /* Assets.xcassets */,
 				C3DD0BEA1EB00B2C0040DF9E /* LaunchScreen.storyboard */,
 				C3DD0BED1EB00B2C0040DF9E /* Info.plist */,
 				C3DD0BF91EB092880040DF9E /* GoogleService-Info.plist */,
+				C37530101EB70B950033C3A0 /* Annotations.swift */,
+				C37530121EB70CA30033C3A0 /* PostViewController.swift */,
 			);
 			path = OnTheHouse;
 			sourceTree = "<group>";
@@ -237,8 +243,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C318452E1EB1669700978010 /* PostViewController.swift in Sources */,
+				C318452E1EB1669700978010 /* EditPostViewController.swift in Sources */,
 				C31845301EB1703000978010 /* AccountViewController.swift in Sources */,
+				C37530131EB70CA30033C3A0 /* PostViewController.swift in Sources */,
+				C37530111EB70B950033C3A0 /* Annotations.swift in Sources */,
 				C3DD0BF61EB00DF60040DF9E /* LoginViewController.swift in Sources */,
 				C3DD0BF41EB00DCF0040DF9E /* SignUpViewController.swift in Sources */,
 				C3DD0BE21EB00B2C0040DF9E /* AppDelegate.swift in Sources */,

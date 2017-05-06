@@ -145,8 +145,8 @@
         <!--Navigation Controller-->
         <scene sceneID="4m8-WS-JpU">
             <objects>
-                <navigationController id="RAg-Hd-Tnd" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3sd-d9-MZq">
+                <navigationController storyboardIdentifier="Home" id="RAg-Hd-Tnd" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3sd-d9-MZq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -165,7 +165,7 @@
         <!--OnTheHouse-->
         <scene sceneID="mBz-CF-7pQ">
             <objects>
-                <viewController storyboardIdentifier="Home" automaticallyAdjustsScrollViewInsets="NO" id="YZ9-57-Ljz" customClass="HomeViewController" customModule="OnTheHouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="YZ9-57-Ljz" customClass="HomeViewController" customModule="OnTheHouse" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vgj-Lj-3DM"/>
                         <viewControllerLayoutGuide type="bottom" id="oQE-Oo-sTg"/>
@@ -659,7 +659,6 @@
                                 </state>
                                 <connections>
                                     <action selector="registerTapped:" destination="DV1-yS-j5e" eventType="touchUpInside" id="h0c-ox-J6c"/>
-                                    <segue destination="RAg-Hd-Tnd" kind="show" id="FaP-Mx-pMI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AwJ-5D-tUV">

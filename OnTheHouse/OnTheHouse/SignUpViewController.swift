@@ -86,6 +86,6 @@ class SignUpViewController: UIViewController {
         
     }
     @IBAction func backToLoginPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
 }

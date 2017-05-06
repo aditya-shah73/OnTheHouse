@@ -77,6 +77,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C3B9B72A1EBD571000FEB45C /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				C3DD0BED1EB00B2C0040DF9E /* Info.plist */,
+				C3DD0BF91EB092880040DF9E /* GoogleService-Info.plist */,
+				C3DD0BEA1EB00B2C0040DF9E /* LaunchScreen.storyboard */,
+				C3DD0BE81EB00B2C0040DF9E /* Assets.xcassets */,
+			);
+			name = Extras;
+			sourceTree = "<group>";
+		};
 		C3DD0BD51EB00B2C0040DF9E = {
 			isa = PBXGroup;
 			children = (
@@ -98,16 +109,13 @@
 		C3DD0BE01EB00B2C0040DF9E /* OnTheHouse */ = {
 			isa = PBXGroup;
 			children = (
+				C3B9B72A1EBD571000FEB45C /* Extras */,
 				C3DD0BE11EB00B2C0040DF9E /* AppDelegate.swift */,
 				C3DD0BE51EB00B2C0040DF9E /* Main.storyboard */,
 				C3DD0BF51EB00DF60040DF9E /* LoginViewController.swift */,
 				C3DD0BF31EB00DCF0040DF9E /* SignUpViewController.swift */,
 				C318452D1EB1669700978010 /* EditPostViewController.swift */,
 				C318452F1EB1703000978010 /* AccountViewController.swift */,
-				C3DD0BE81EB00B2C0040DF9E /* Assets.xcassets */,
-				C3DD0BEA1EB00B2C0040DF9E /* LaunchScreen.storyboard */,
-				C3DD0BED1EB00B2C0040DF9E /* Info.plist */,
-				C3DD0BF91EB092880040DF9E /* GoogleService-Info.plist */,
 				C37530101EB70B950033C3A0 /* Annotations.swift */,
 				C37530121EB70CA30033C3A0 /* PostViewController.swift */,
 				C369182E1EBD417800358A27 /* HomeViewController.swift */,

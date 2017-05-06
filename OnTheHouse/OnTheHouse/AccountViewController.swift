@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class AccountViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
@@ -25,6 +27,18 @@ class AccountViewController: UIViewController, UINavigationControllerDelegate, U
         
     }
     
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        if FIRAuth.auth()?.currentUser != nil {
+            do {
+                try FIRAuth.auth()?.signOut()
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login")
+                present(vc, animated: true, completion: nil)
+                
+            } catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+    }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
             profileImage.image = image

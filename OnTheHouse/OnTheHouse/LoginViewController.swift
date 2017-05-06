@@ -9,10 +9,13 @@
 import UIKit
 import FBSDKLoginKit
 import Firebase
+import FirebaseAuth
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     @IBOutlet var loginButton: FBSDKLoginButton!
+    @IBOutlet weak var _email: UITextField!
+    @IBOutlet weak var _password: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,38 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 
     }
 
+    @IBAction func loginButtonPressed(_ sender: Any) {
+        if self._email.text == "" || self._password.text == "" {
+            
+            displayAlert(userMessage: "Please fill out the form")
+            
+        } else {
+            
+            FIRAuth.auth()?.signIn(withEmail: self._email.text!, password: self._password.text!) { (user, error) in
+                
+                if error == nil {
+                    
+                    //Print into the console if successfully logged in
+                    print("You have successfully logged in")
+                    
+                    //Go to the HomeViewController if the login is sucessful
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+                    self.present(vc!, animated: true, completion: nil)
+                    
+                } else {
+                    
+                    //Tells the user that there is an error and then gets firebase to tell them the error
+                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }
+        }
+        
+    }
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("Logged Out")
     }
@@ -56,8 +91,18 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             print(result ?? "")
         }
         
-        performSegue(withIdentifier: "login", sender: self)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+        self.present(vc!, animated: true, completion: nil)
     }
 
+    func displayAlert(userMessage: String){
+        let alert = UIAlertController(title: "Alert", message: userMessage, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil)
+        
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: true, completion:nil)
+    }
 
 }

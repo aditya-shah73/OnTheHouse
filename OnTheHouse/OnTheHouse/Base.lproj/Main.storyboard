@@ -14,7 +14,7 @@
         <scene sceneID="zj0-7T-Ve5">
             <objects>
                 <navigationController id="Syc-tx-MpK" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kUT-fk-dzN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kUT-fk-dzN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -50,7 +50,7 @@
                                     <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="RAg-Hd-Tnd" kind="show" identifier="login" id="Ek9-zw-YhJ"/>
+                                    <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0DZ-QM-5RZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0aa-nl-IN9">
@@ -102,7 +102,7 @@
                                 <state key="normal" title="FB LOGIN"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UL1-fk-5ar">
-                                <rect key="frame" x="176" y="593" width="17" height="22.5"/>
+                                <rect key="frame" x="176" y="593" width="17" height="23"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -133,6 +133,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="jMI-za-98H"/>
                     <connections>
+                        <outlet property="_email" destination="DCE-8f-lmf" id="oyf-Kj-C5e"/>
+                        <outlet property="_password" destination="39B-em-6OL" id="q4l-zF-dMg"/>
                         <outlet property="loginButton" destination="zQe-52-OI3" id="w9l-8J-3Rj"/>
                     </connections>
                 </viewController>
@@ -144,7 +146,7 @@
         <scene sceneID="4m8-WS-JpU">
             <objects>
                 <navigationController id="RAg-Hd-Tnd" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3sd-d9-MZq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="3sd-d9-MZq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -163,7 +165,7 @@
         <!--OnTheHouse-->
         <scene sceneID="mBz-CF-7pQ">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="YZ9-57-Ljz" customClass="HomeViewController" customModule="OnTheHouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Home" automaticallyAdjustsScrollViewInsets="NO" id="YZ9-57-Ljz" customClass="HomeViewController" customModule="OnTheHouse" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vgj-Lj-3DM"/>
                         <viewControllerLayoutGuide type="bottom" id="oQE-Oo-sTg"/>
@@ -289,7 +291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ANQ-mK-6sU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1976.8" y="-56.671664167916049"/>
+            <point key="canvasLocation" x="1954" y="-58"/>
         </scene>
         <!--Edit Post View Controller-->
         <scene sceneID="K2V-gD-QsH">
@@ -569,7 +571,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="egP-sy-MJY">
-                                <rect key="frame" x="62" y="141" width="250" height="306.5"/>
+                                <rect key="frame" x="62" y="141.5" width="250" height="306.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j1B-fJ-tMf">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="20.5"/>
@@ -643,7 +645,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ouk-Ch-rJ4">
-                                <rect key="frame" x="139" y="488.5" width="96" height="34"/>
+                                <rect key="frame" x="139" y="489" width="96" height="34"/>
                                 <color key="backgroundColor" red="0.55045866970000001" green="0.93528223040000003" blue="0.89173525570000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="96" id="CiG-El-gwT"/>
@@ -654,7 +656,7 @@
                                 </state>
                                 <connections>
                                     <action selector="registerTapped:" destination="DV1-yS-j5e" eventType="touchUpInside" id="h0c-ox-J6c"/>
-                                    <segue destination="RAg-Hd-Tnd" kind="show" identifier="register" id="GWO-3a-7lI"/>
+                                    <segue destination="RAg-Hd-Tnd" kind="show" id="FaP-Mx-pMI"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AwJ-5D-tUV">
@@ -687,7 +689,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YNT-IT-NIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137" y="955"/>
+            <point key="canvasLocation" x="136.80000000000001" y="954.87256371814101"/>
         </scene>
     </scenes>
     <resources>
@@ -696,7 +698,4 @@
         <image name="User" width="100" height="100"/>
         <image name="simplenexus-icon" width="1024" height="1024"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Ek9-zw-YhJ"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -25,25 +25,21 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func registerTapped(_ sender: Any) {
-        guard let email = _email.text, let password = _password.text else{
-            self.displayAlert(userMessage: "All fields are required")
-            return
+        if _email.text == "" {
+            displayAlert(userMessage: "Please enter an email")
+            
+        } else {
+            FIRAuth.auth()?.createUser(withEmail: _email.text!, password: _password.text!) { (user, error) in
+                
+                if error == nil {
+                    print("You have successfully signed up")
+                    self.performSegue(withIdentifier: "register", sender: self)
+                    
+                } else {
+                    self.displayAlert(userMessage: "Please complete the form correctly")
+                }
+            }
         }
-        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
-            if error == nil{
-                self.performSegue(withIdentifier: "signup", sender: nil)
-            }
-            else{
-                FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user: FIRUser?, error) in
-                    if error != nil {
-                        print(error ?? "")
-                    }
-                    else{
-                        self.performSegue(withIdentifier: "signup", sender: nil)
-                    }
-                })
-            }
-        })
 
     }
 

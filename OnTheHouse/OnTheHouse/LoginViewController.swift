@@ -47,6 +47,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         })
         
         
+        
         FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, err) in
             if err != nil{
                 print("Error", err ?? "")
@@ -54,6 +55,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
             print(result ?? "")
         }
+        
+        performSegue(withIdentifier: "login", sender: self)
     }
 
 

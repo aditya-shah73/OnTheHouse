@@ -18,6 +18,8 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        //MapView
         let distanceSpan:CLLocationDegrees = 2000
         let sjsuLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(37.3351874, -121.88107150000002)
         mapView.setRegion(MKCoordinateRegionMakeWithDistance(sjsuLocation, distanceSpan, distanceSpan), animated: true)

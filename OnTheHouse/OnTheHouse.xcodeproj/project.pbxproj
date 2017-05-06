@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		01424CCF155CE41BC7B6F49D /* Pods_OnTheHouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C338917DF5A9D86378492301 /* Pods_OnTheHouse.framework */; };
 		C318452C1EB1616E00978010 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C318452B1EB1616E00978010 /* MapKit.framework */; };
-		C318452E1EB1669700978010 /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318452D1EB1669700978010 /* EditPostViewController.swift */; };
+		C318452E1EB1669700978010 /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318452D1EB1669700978010 /* CreatePostViewController.swift */; };
 		C31845301EB1703000978010 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C318452F1EB1703000978010 /* AccountViewController.swift */; };
 		C369182F1EBD417800358A27 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C369182E1EBD417800358A27 /* HomeViewController.swift */; };
 		C36918311EBD448800358A27 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36918301EBD448800358A27 /* CollectionViewCell.swift */; };
@@ -26,8 +26,9 @@
 
 /* Begin PBXFileReference section */
 		C131136DF4F310B98767CB6E /* Pods-OnTheHouse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheHouse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OnTheHouse/Pods-OnTheHouse.debug.xcconfig"; sourceTree = "<group>"; };
+		C1AE12C91EBE875400ABCE79 /* FirebaseDatabase */ = {isa = PBXFileReference; lastKnownFileType = folder; name = FirebaseDatabase; path = Pods/FirebaseDatabase; sourceTree = "<group>"; };
 		C318452B1EB1616E00978010 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		C318452D1EB1669700978010 /* EditPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
+		C318452D1EB1669700978010 /* CreatePostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		C318452F1EB1703000978010 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		C338917DF5A9D86378492301 /* Pods_OnTheHouse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnTheHouse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C369182E1EBD417800358A27 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +63,7 @@
 		32B5334800F47C22B2ED8F39 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C1AE12C91EBE875400ABCE79 /* FirebaseDatabase */,
 				C318452B1EB1616E00978010 /* MapKit.framework */,
 				C338917DF5A9D86378492301 /* Pods_OnTheHouse.framework */,
 			);
@@ -114,7 +116,7 @@
 				C3DD0BE51EB00B2C0040DF9E /* Main.storyboard */,
 				C3DD0BF51EB00DF60040DF9E /* LoginViewController.swift */,
 				C3DD0BF31EB00DCF0040DF9E /* SignUpViewController.swift */,
-				C318452D1EB1669700978010 /* EditPostViewController.swift */,
+				C318452D1EB1669700978010 /* CreatePostViewController.swift */,
 				C318452F1EB1703000978010 /* AccountViewController.swift */,
 				C37530101EB70B950033C3A0 /* Annotations.swift */,
 				C37530121EB70CA30033C3A0 /* PostViewController.swift */,
@@ -159,7 +161,7 @@
 				TargetAttributes = {
 					C3DD0BDD1EB00B2C0040DF9E = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 9L48V8Y876;
+						DevelopmentTeam = 6WA6Y7KBQJ;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -257,7 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C318452E1EB1669700978010 /* EditPostViewController.swift in Sources */,
+				C318452E1EB1669700978010 /* CreatePostViewController.swift in Sources */,
 				C31845301EB1703000978010 /* AccountViewController.swift in Sources */,
 				C36918311EBD448800358A27 /* CollectionViewCell.swift in Sources */,
 				C37530131EB70CA30033C3A0 /* PostViewController.swift in Sources */,
@@ -389,7 +391,7 @@
 			baseConfigurationReference = C131136DF4F310B98767CB6E /* Pods-OnTheHouse.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9L48V8Y876;
+				DEVELOPMENT_TEAM = 6WA6Y7KBQJ;
 				INFOPLIST_FILE = OnTheHouse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.project.OnTheHouse;
@@ -403,7 +405,7 @@
 			baseConfigurationReference = CC111E4A0605DAAAA1758A69 /* Pods-OnTheHouse.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 9L48V8Y876;
+				DEVELOPMENT_TEAM = 6WA6Y7KBQJ;
 				INFOPLIST_FILE = OnTheHouse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.project.OnTheHouse;

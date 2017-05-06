@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Syc-tx-MpK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Syc-tx-MpK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -14,7 +14,7 @@
         <scene sceneID="zj0-7T-Ve5">
             <objects>
                 <navigationController id="Syc-tx-MpK" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kUT-fk-dzN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kUT-fk-dzN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -185,7 +185,7 @@
                                                 <color key="backgroundColor" red="0.55045866970000001" green="0.93528223040000003" blue="0.89173525570000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Post a Item"/>
                                                 <connections>
-                                                    <segue destination="IJD-ZG-8sg" kind="show" id="h55-EO-gaQ"/>
+                                                    <action selector="postButtonPressed:" destination="YZ9-57-Ljz" eventType="touchUpInside" id="wKm-Lo-Qod"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OnTheHouse" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86j-YJ-iEE">
@@ -227,7 +227,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collection_cell" id="UD8-2f-Vgl" customClass="CollectionViewCell" customModule="OnTheHouse" customModuleProvider="target">
-                                                <rect key="frame" x="82" y="0.0" width="196" height="185"/>
+                                                <rect key="frame" x="81.5" y="0.0" width="196" height="185"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                     <rect key="frame" x="0.0" y="0.0" width="196" height="185"/>
@@ -293,10 +293,10 @@
             </objects>
             <point key="canvasLocation" x="1954" y="-58"/>
         </scene>
-        <!--Edit Post View Controller-->
+        <!--Create Post View Controller-->
         <scene sceneID="K2V-gD-QsH">
             <objects>
-                <viewController id="IJD-ZG-8sg" customClass="EditPostViewController" customModule="OnTheHouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="createPost" id="IJD-ZG-8sg" customClass="CreatePostViewController" customModule="OnTheHouse" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uTf-B2-w0F"/>
                         <viewControllerLayoutGuide type="bottom" id="KeQ-fs-Bba"/>
@@ -343,6 +343,9 @@
                                 <state key="normal" title="Post!">
                                     <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="postPressed:" destination="IJD-ZG-8sg" eventType="touchUpInside" id="FTR-q6-teN"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u9M-d9-54A">
                                 <rect key="frame" x="0.0" y="413" width="375" height="167"/>
@@ -382,12 +385,15 @@
                     <navigationItem key="navigationItem" id="eIv-fq-KTf"/>
                     <splitViewMasterSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
+                        <outlet property="descriptionText" destination="u9M-d9-54A" id="ECt-7T-xA6"/>
                         <outlet property="imageView" destination="5LS-c7-1Sh" id="aDW-nP-DDg"/>
+                        <outlet property="postButton" destination="94b-pO-fJY" id="E8p-eM-UBA"/>
+                        <outlet property="titleText" destination="Wl4-tA-yN9" id="JkT-HT-2tj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8I2-dN-AHb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2873" y="-57"/>
+            <point key="canvasLocation" x="2872.8000000000002" y="-57.121439280359823"/>
         </scene>
         <!--Account View Controller-->
         <scene sceneID="8FG-7Y-P9h">

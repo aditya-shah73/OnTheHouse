@@ -30,12 +30,23 @@ class SignUpViewController: UIViewController {
             
         } else {
             FIRAuth.auth()?.createUser(withEmail: _email.text!, password: _password.text!) { (user, error) in
-                
                 if error == nil {
                     print("You have successfully signed up")
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-                    self.present(vc!, animated: true, completion: nil)
+                    guard let uid = user?.uid else {
+                        return
+                }
                     
+                let ref = FIRDatabase.database().reference()
+                let usersReference = ref.child("users").child(uid)
+                let values = ["name": self._firstname.text, "email": self._email.text]
+                usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+                if let err = err {
+                    print(err)
+                    return
+                }
+                })
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+                self.present(vc!, animated: true, completion: nil)
                 } else {
                     self.displayAlert(userMessage: "Please complete the form correctly")
                 }

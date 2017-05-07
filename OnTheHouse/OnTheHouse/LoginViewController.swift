@@ -81,6 +81,18 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                     print("FB User is wrong", err ?? "")
             }
             print("User successfully logged in to Firebase with: ", user ?? "")
+            guard let uid = user?.uid else{
+                return
+            }
+            let ref = FIRDatabase.database().reference()
+            let usersReference = ref.child("users").child(uid)
+            let values = ["name": user?.displayName, "email": user?.email]
+            usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+                if let err = err {
+                    print(err)
+                    return
+                }
+            })
             
             
         })

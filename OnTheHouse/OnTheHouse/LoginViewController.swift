@@ -10,12 +10,15 @@ import UIKit
 import FBSDKLoginKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
 
     @IBOutlet var loginButton: FBSDKLoginButton!
     @IBOutlet weak var _email: UITextField!
     @IBOutlet weak var _password: UITextField!
+    let storage = FIRStorage.storage().reference(forURL: "gs://onthehouse-1c446.appspot.com")
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +75,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             return
         }
         print("Successfully Logged In")
-        
+
         
         let accessToken = FBSDKAccessToken.current()
         let credentials = FIRFacebookAuthProvider.credential(withAccessToken: (accessToken?.tokenString)!)
@@ -86,7 +89,10 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
             let ref = FIRDatabase.database().reference()
             let usersReference = ref.child("users").child(uid)
-            let values = ["name": user?.displayName, "email": user?.email]
+            let values = ["uid": user?.uid,
+                        "name": user?.displayName,
+                          "email": user?.email,
+                          "image": user?.photoURL?.absoluteString]
             usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
                 if let err = err {
                     print(err)
@@ -99,7 +105,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         
         
-        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start { (connection, result, err) in
+        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email, picture"]).start { (connection, result, err) in
             if err != nil{
                 print("Error", err ?? "")
                 return

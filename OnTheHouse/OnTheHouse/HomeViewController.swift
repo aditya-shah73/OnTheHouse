@@ -22,10 +22,7 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func postButtonPressed(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "createPost")
-        self.present(vc!, animated: true, completion: nil)
-    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //number of cells
         return 5

@@ -13,7 +13,13 @@ import FirebaseAuth
 class AccountViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     @IBOutlet var profileImage: UIImageView!
+    @IBOutlet weak var _name: UILabel!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
 
+        
+    }
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
         if FIRAuth.auth()?.currentUser != nil {

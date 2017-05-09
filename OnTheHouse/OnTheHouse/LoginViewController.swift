@@ -17,7 +17,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet var loginButton: FBSDKLoginButton!
     @IBOutlet weak var _email: UITextField!
     @IBOutlet weak var _password: UITextField!
-    let storage = FIRStorage.storage().reference(forURL: "gs://onthehouse-1c446.appspot.com")
+
 
     
     override func viewDidLoad() {

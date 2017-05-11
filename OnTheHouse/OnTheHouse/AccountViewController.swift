@@ -17,9 +17,8 @@ class AccountViewController: UIViewController, UINavigationControllerDelegate, U
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
         fetchUser()
+        super.viewDidLoad()
         
     }
     

@@ -69,6 +69,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         print("Logged Out")
     }
     
+    
+    
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if error != nil{
             print(error)
@@ -79,6 +81,22 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         let accessToken = FBSDKAccessToken.current()
         let credentials = FIRFacebookAuthProvider.credential(withAccessToken: (accessToken?.tokenString)!)
+        var imageStringUrl : String?
+        
+            let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"picture.type(large)"])
+            graphRequest?.start(completionHandler: { (connection, result, error) in
+                if error != nil {
+                    print(error ?? "")
+                }
+                
+                if let resultDic = result as? NSDictionary {
+                    let data = resultDic["picture"] as? NSDictionary
+                    let dataDict = data!["data"] as? NSDictionary
+                    imageStringUrl = dataDict!["url"] as? String
+                }
+            })
+        
+        
         FIRAuth.auth()?.signIn(with: credentials, completion: { (user, err) in
             if err != nil{
                     print("FB User is wrong", err ?? "")
@@ -92,7 +110,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             let values = ["uid": user?.uid,
                         "name": user?.displayName,
                           "email": user?.email,
-                          "image": user?.photoURL?.absoluteString]
+                          "profilePicture": imageStringUrl]
             usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
                 if let err = err {
                     print(err)
@@ -104,14 +122,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         })
         
         
-        
-        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email, picture"]).start { (connection, result, err) in
-            if err != nil{
-                print("Error", err ?? "")
-                return
-            }
-            print(result ?? "")
-        }
+    
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
         self.present(vc!, animated: true, completion: nil)

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class HomeViewController: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource{
 
@@ -15,25 +16,66 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
         super.viewDidLoad()
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        posts.removeAll()
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        fetchPosts()
+        
     }
     
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
     
+    var posts = [Post]()
+
+    
+    func fetchPosts(){
+
+        let ref = FIRDatabase.database().reference()
+        ref.child("posts").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
+            let postSnap = snapshot.value as! [String: AnyObject]
+
+            print(postSnap)
+            let postItem = Post()
+            
+            if let description = postSnap["description"] as? String,
+                let pathToImage = postSnap["pathToImage"] as?  String,
+                let postID = postSnap["postID"] as? String,
+                let title = postSnap["title"] as? String,
+                let userID = postSnap["userID"] as? String{
+                postItem.description = description
+                postItem.pathToImage = pathToImage
+                postItem.postID = postID
+                postItem.title = title
+                postItem.userID = userID
+            }
+            self.posts.append(postItem)
+            
+            self.collectionView.reloadData()
+        })
+        
+        ref.removeAllObservers()
+    }
+    
+    @IBAction func postItemPressed(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "createPost")
+        self.present(vc!, animated: true, completion: nil)
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //number of cells
-        return 5
+
+        return posts.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection_cell", for: indexPath) as! CollectionViewCell
-        
-        //set images here
-        cell.myImage.image = #imageLiteral(resourceName: "Couch2")
-        cell.myLabel.text = "Almost New Couch"
+        cell.myImage.downloadImage(from: self.posts[indexPath.row].pathToImage)
+        cell.myLabel.text = self.posts[indexPath.row].title
         return cell
     }
     
@@ -41,3 +83,27 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
         print("selected : " , indexPath.row)
     }
 }
+
+extension UIImageView {
+    
+    func downloadImage(from imgURL: String!) {
+        let url = URLRequest(url: URL(string: imgURL)!)
+        
+        let task = URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            
+            if error != nil {
+                print(error!)
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.image = UIImage(data: data!)
+            }
+            
+        }
+        
+        task.resume()
+    }
+}
+

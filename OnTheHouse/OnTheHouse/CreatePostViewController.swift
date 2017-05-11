@@ -23,23 +23,27 @@ class CreatePostViewController: UIViewController,UINavigationControllerDelegate,
         let image = UIImagePickerController()
         image.delegate = self
         image.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        
+
         image.allowsEditing = false
         self.present(image, animated: true)
-        {
-            //after it is complete
-        }
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            imageView.layer.cornerRadius = 70.0
+            imageView.layer.borderColor = UIColor.white.cgColor
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.layer.masksToBounds = true
             imageView.image = image
         }
         else{
             print("Error")
         }
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func cancelPressed(_ sender: Any) {
+                self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func postPressed(_ sender: Any) {

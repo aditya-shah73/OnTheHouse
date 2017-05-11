@@ -14,11 +14,34 @@ class AccountViewController: UIViewController, UINavigationControllerDelegate, U
 
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet weak var _name: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
+        fetchUser()
         
+    }
+    
+    func fetchUser(){
+        let uid = FIRAuth.auth()?.currentUser?.uid
+        FIRDatabase.database().reference().child("users").child(uid!).observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            if let dictionary = snapshot.value as?  [String: AnyObject]{
+                self._name.text = dictionary["name"] as? String
+                
+                let databaseProfilePic = dictionary["profilePicture"] as? String
+                let data = NSData(contentsOf: NSURL(string: databaseProfilePic!) as! URL)
+                self.setProfilePicture(imageView: self.profileImage, imageToSet: UIImage(data:data! as Data)!)
+            }
+        }, withCancel: nil)
+    }
+    
+    internal func setProfilePicture(imageView: UIImageView, imageToSet: UIImage){
+        imageView.layer.cornerRadius = 10.0
+        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.layer.masksToBounds = true
+        imageView.image = imageToSet
     }
     
     @IBAction func logoutButtonPressed(_ sender: Any) {

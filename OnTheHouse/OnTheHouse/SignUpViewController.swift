@@ -17,8 +17,6 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, UI
     @IBOutlet weak var _password: UITextField!
     @IBOutlet weak var _confirmpassword: UITextField!
     @IBOutlet weak var _profilepic: UIImageView!
-    let storage = FIRStorage.storage().reference(forURL: "gs://onthehouse-1c446.appspot.com")
-    let ref = FIRDatabase.database().reference()
 
 
     override func viewDidLoad() {
@@ -39,7 +37,6 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, UI
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
             _profilepic.image = image
-            
         }
         else{
             print("Error")
@@ -63,39 +60,36 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, UI
                 return
             }
             FIRAuth.auth()?.createUser(withEmail: _email.text!, password: _password.text!) { (user, error) in
-                if error == nil {
-                    print("You have successfully signed up")
-                    
-                let uid = FIRAuth.auth()!.currentUser!.uid
-                let imageRef = self.storage.child("users").child("\(user!.uid).jpg")
-                let data = UIImageJPEGRepresentation(self._profilepic.image!, 0.5)
-                let uploadTask = imageRef.put(data!, metadata: nil, completion: { (metadata, error) in
-                    if error != nil {
-                        print(error!)
-                    }
-                    imageRef.downloadURL(completion: { (url, err) in
-                        if err != nil{
-                            print(err!)
+                if error != nil {
+                    self.displayAlert(userMessage: "Please complete the form correctly")
+                    return
+                }
+                print("You have successfully signed up")
+                guard let uid = user?.uid else {
+                    return
+                }
+                let imageName = NSUUID().uuidString
+                let storage = FIRStorage.storage().reference().child("ProfilePictures").child("\(imageName).png")
+                
+                if let uploadData = UIImagePNGRepresentation(self._profilepic.image!){
+                    storage.put(uploadData, metadata: nil, completion: { (metadata, error) in
+                        if error != nil{
+                            print(error ?? "")
+                            return
                         }
-                        if let url = url {
-                            let values = ["uid" : user?.uid,
+                        
+                        if let profilePicture = metadata?.downloadURL()?.absoluteString{
+                            let values = ["uid" : uid,
                                           "name": self._firstname.text!,
                                           "email": self._email.text!,
-                                          "image": url.absoluteString]
-                            self.ref.child("users").child(uid).setValue(values)
-                            
-                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-                            self.present(vc!, animated: true, completion: nil)
-                           
+                                          "profilePicture": profilePicture] as [String : Any]
+                            self.registerUserIntoDatabaseUsingUID(uid: uid, values: values)
                         }
+                        
+                        
                     })
-                })
-                uploadTask.resume()
                 }
-                else{
-                        self.displayAlert(userMessage: "Please complete the form correctly")
-                        return
-                }
+
             }
             
 
@@ -103,6 +97,21 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, UI
 
     }
 
+    private func registerUserIntoDatabaseUsingUID(uid: String, values: [String: Any]){
+        let ref = FIRDatabase.database().reference(fromURL: "https://onthehouse-1c446.firebaseio.com/")
+        let userReference = ref.child("users").child(uid)
+
+
+        userReference.updateChildValues(values) { (error, ref) in
+            if error != nil{
+                print(error ?? "")
+                return
+            }
+        }
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+        self.present(vc!, animated: true, completion: nil)
+    }
 
     
     func displayAlert(userMessage: String){

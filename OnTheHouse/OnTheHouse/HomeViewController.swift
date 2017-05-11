@@ -40,7 +40,6 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
         ref.child("posts").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
             let postSnap = snapshot.value as! [String: AnyObject]
 
-            print(postSnap)
             let postItem = Post()
             
             if let description = postSnap["description"] as? String,

@@ -20,7 +20,8 @@ class AccountViewController: UIViewController, UINavigationControllerDelegate, U
     override func viewDidLoad() {
 
         super.viewDidLoad()
-
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
         
     }
     
@@ -29,6 +30,8 @@ class AccountViewController: UIViewController, UINavigationControllerDelegate, U
         posts.removeAll()
         fetchUser()
         fetchUserPosts()
+
+
         
     }
     
@@ -55,7 +58,6 @@ class AccountViewController: UIViewController, UINavigationControllerDelegate, U
         ref.child("posts").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
             let postSnap = snapshot.value as! [String: AnyObject]
             
-            print(postSnap)
             let postItem = Post()
             
             if let description = postSnap["description"] as? String,
@@ -104,12 +106,13 @@ class AccountViewController: UIViewController, UINavigationControllerDelegate, U
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "user_collection_cell", for: indexPath) as! CollectionViewCell
-        cell.myImage.downloadImage(from: self.posts[indexPath.row].pathToImage)
-        cell.myLabel.text = self.posts[indexPath.row].title
+        cell.accountImage.downloadImage(from: self.posts[indexPath.row].pathToImage)
+        cell.accountLabel.text = self.posts[indexPath.row].title
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return posts.count
     }
 

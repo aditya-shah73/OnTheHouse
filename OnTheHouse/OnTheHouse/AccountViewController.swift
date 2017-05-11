@@ -37,8 +37,9 @@ class AccountViewController: UIViewController, UINavigationControllerDelegate, U
     }
     
     internal func setProfilePicture(imageView: UIImageView, imageToSet: UIImage){
-        imageView.layer.cornerRadius = 10.0
+        imageView.layer.cornerRadius = 70.0
         imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.masksToBounds = true
         imageView.image = imageToSet
     }

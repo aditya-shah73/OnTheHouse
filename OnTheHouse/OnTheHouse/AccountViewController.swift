@@ -53,31 +53,36 @@ class AccountViewController: UIViewController, UINavigationControllerDelegate, U
     
     var posts = [Post]()
     
-    func fetchUserPosts(){
+    func fetchUserPosts() {
         let ref = FIRDatabase.database().reference()
-        ref.child("posts").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
-            let postSnap = snapshot.value as! [String: AnyObject]
+        ref.child("posts").queryOrderedByKey().observeSingleEvent(of: .value, with: { (snap) in
+            let postSnap = snap.value as! [String: AnyObject]
             
-            let postItem = Post()
-            
-            if let description = postSnap["description"] as? String,
-                let pathToImage = postSnap["pathToImage"] as?  String,
-                let postID = postSnap["postID"] as? String,
-                let title = postSnap["title"] as? String,
-                let userID = postSnap["userID"] as? String{
-                postItem.theDescription = description
-                postItem.pathToImage = pathToImage
-                postItem.postID = postID
-                postItem.title = title
-                postItem.userID = userID
+            for (_,post) in postSnap {
+                if let uid = post["userID"] as? String{
+                    if uid == FIRAuth.auth()?.currentUser?.uid{
+                        let postItem = Post()
+                        if let description = post["description"] as? String,
+                            let postID = post["postID"] as? String,
+                            let pathToImage = post["pathToImage"] as? String,
+                            let title = post["title"] as? String {
+                            
+                            postItem.theDescription = description
+                            postItem.postID = postID
+                            postItem.pathToImage = pathToImage
+                            postItem.title = title
+                            postItem.userID = uid
+                        
+                            self.posts.append(postItem)
+                        }
+                        self.collectionView.reloadData()
+                    }
+                }
             }
-            self.posts.append(postItem)
-            
-            self.collectionView.reloadData()
         })
-        
         ref.removeAllObservers()
     }
+    
     
     internal func setProfilePicture(imageView: UIImageView, imageToSet: UIImage){
         imageView.layer.cornerRadius = 70.0

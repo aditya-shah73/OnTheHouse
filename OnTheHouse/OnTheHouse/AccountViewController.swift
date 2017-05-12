@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 class AccountViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
 
@@ -65,7 +65,7 @@ class AccountViewController: UIViewController, UINavigationControllerDelegate, U
                 let postID = postSnap["postID"] as? String,
                 let title = postSnap["title"] as? String,
                 let userID = postSnap["userID"] as? String{
-                postItem.description = description
+                postItem.theDescription = description
                 postItem.pathToImage = pathToImage
                 postItem.postID = postID
                 postItem.title = title

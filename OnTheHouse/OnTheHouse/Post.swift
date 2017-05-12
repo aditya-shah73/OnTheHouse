@@ -8,9 +8,10 @@
 
 import UIKit
 
-class Post : AnyObject{
+//class Post : AnyObject{
+class Post : NSObject {
     
-    var description : String?
+    var theDescription : String?
     var pathToImage : String?
     var postID : String?
     var title : String?

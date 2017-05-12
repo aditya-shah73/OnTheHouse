@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import FirebaseDatabase
 import Firebase
+
 
 class HomeViewController: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource{
 
@@ -31,46 +33,16 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
         return 1
     }
     
-    var posts = [Post]()
-
-    
-    func fetchPosts(){
-
-        let ref = FIRDatabase.database().reference()
-        ref.child("posts").queryOrderedByKey().observe(.childAdded, with: { (snapshot) in
-            let postSnap = snapshot.value as! [String: AnyObject]
-
-            let postItem = Post()
-            
-            if let description = postSnap["description"] as? String,
-                let pathToImage = postSnap["pathToImage"] as?  String,
-                let postID = postSnap["postID"] as? String,
-                let title = postSnap["title"] as? String,
-                let userID = postSnap["userID"] as? String{
-                postItem.description = description
-                postItem.pathToImage = pathToImage
-                postItem.postID = postID
-                postItem.title = title
-                postItem.userID = userID
-            }
-            self.posts.append(postItem)
-            
-            self.collectionView.reloadData()
-        })
-        
-        ref.removeAllObservers()
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //number of cells
+        return self.posts.count
     }
     
     @IBAction func postItemPressed(_ sender: Any) {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "createPost")
         self.present(vc!, animated: true, completion: nil)
     }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //number of cells
-
-        return posts.count
-    }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection_cell", for: indexPath) as! CollectionViewCell
         cell.myImage.downloadImage(from: self.posts[indexPath.row].pathToImage)
@@ -81,6 +53,38 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("selected : " , indexPath.row)
     }
+    
+    var posts = [Post]()
+
+    func fetchPosts(){
+        let ref = FIRDatabase.database().reference()
+                        ref.child("posts").queryOrderedByKey().observeSingleEvent(of: .value, with: {(snap) in
+                        let postsSnap = snap.value as! [String: AnyObject]
+                        //this gets all the posts
+                        
+                        for(_,post) in postsSnap {
+                            if let uid = post["userID"] as? String{
+                               // if userID == FIRAuth.auth()?.currentUser?.uid {
+                                    let thePost = Post()
+                                    if let description = post["description"] as? String,
+                                        let postID = post["postID"] as? String,
+                                        let pathToImage = post["pathToImage"] as? String,
+                                        let title = post["title"] as? String {
+                                        
+                                        thePost.theDescription = description
+                                        thePost.postID = postID
+                                        thePost.pathToImage = pathToImage
+                                        thePost.title = title
+                                        thePost.userID = uid
+                                        
+                                        self.posts.append(thePost)
+                                    }
+                            self.collectionView.reloadData()
+                        }
+                    }
+                })
+              ref.removeAllObservers()
+            }
 }
 
 extension UIImageView {
@@ -105,4 +109,6 @@ extension UIImageView {
         task.resume()
     }
 }
+
+
 

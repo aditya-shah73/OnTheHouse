@@ -51,7 +51,9 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("selected : " , indexPath.row)
+        print("selected : " , self.posts[indexPath.row])
+        //sender is the post that is selected
+        performSegue(withIdentifier: "postProfile", sender: self.posts[indexPath.row])
     }
     
     var posts = [Post]()
@@ -60,11 +62,10 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
         let ref = FIRDatabase.database().reference()
                         ref.child("posts").queryOrderedByKey().observeSingleEvent(of: .value, with: {(snap) in
                         let postsSnap = snap.value as! [String: AnyObject]
-                        //this gets all the posts
+                        //this gets all the posts and puts it in posts array
                         
                         for(_,post) in postsSnap {
                             if let uid = post["userID"] as? String{
-                               // if userID == FIRAuth.auth()?.currentUser?.uid {
                                     let thePost = Post()
                                     if let description = post["description"] as? String,
                                         let postID = post["postID"] as? String,
@@ -85,6 +86,17 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
                 })
               ref.removeAllObservers()
             }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? PostViewController{
+            if let post = sender as? Post{
+                //send the selected post to the PostViewVC
+                destination.post = post
+            }
+        }
+    }
+    
 }
 
 extension UIImageView {

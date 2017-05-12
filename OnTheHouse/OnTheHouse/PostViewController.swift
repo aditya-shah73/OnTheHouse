@@ -13,12 +13,21 @@ import MapKit
 class PostViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var postPicture: UIImageView!
+    @IBOutlet weak var userPicture: UIImageView!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var postTitle: UILabel!
+    @IBOutlet weak var postDescription: UITextView!
+    
+    
+    //The current post that is being displayed
+    var post = Post()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        fillPostInfo()
         //MapView
         let distanceSpan:CLLocationDegrees = 2000
         let sjsuLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(37.3351874, -121.88107150000002)
@@ -29,19 +38,15 @@ class PostViewController: UIViewController {
     }
     
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func fillPostInfo(){
+            postTitle.text! = post.title!
+            postDescription.text! = post.theDescription!
+            postPicture.downloadImage(from: post.pathToImage)
     }
     
     
-    /*
-     // MARK: - Navigation
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
+
+
+

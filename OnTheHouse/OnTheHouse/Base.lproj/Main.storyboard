@@ -195,18 +195,11 @@
                                                     <segue destination="Saf-ty-VlD" kind="show" id="gev-09-ujq"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="drx-bi-1Of">
-                                                <rect key="frame" x="263" y="892" width="79" height="30"/>
-                                                <state key="normal" title="Post Profile"/>
-                                                <connections>
-                                                    <segue destination="afY-Rw-u8Q" kind="show" identifier="postProfile" id="xFt-Nh-lKi"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="Aut-Jc-Nxn" secondAttribute="bottom" constant="25" id="27a-RL-Ahv"/>
-                                            <constraint firstItem="drx-bi-1Of" firstAttribute="leading" secondItem="QFP-3p-4pl" secondAttribute="trailing" constant="55" id="AJ3-wN-PlS"/>
+                                            <constraint firstItem="QFP-3p-4pl" firstAttribute="leading" secondItem="Aut-Jc-Nxn" secondAttribute="trailing" constant="44" id="ijT-FL-4vi"/>
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1BS-D8-zXD">
@@ -257,13 +250,11 @@
                                     <constraint firstItem="1BS-D8-zXD" firstAttribute="leading" secondItem="Aut-Jc-Nxn" secondAttribute="leading" constant="-22" id="MWn-K3-enf"/>
                                     <constraint firstItem="QFP-3p-4pl" firstAttribute="top" secondItem="1BS-D8-zXD" secondAttribute="bottom" constant="38" id="NCD-IV-147"/>
                                     <constraint firstAttribute="trailing" secondItem="1BS-D8-zXD" secondAttribute="trailing" constant="8" id="RCB-ST-9FZ"/>
-                                    <constraint firstItem="1BS-D8-zXD" firstAttribute="trailing" secondItem="drx-bi-1Of" secondAttribute="trailing" constant="25" id="WSF-o0-fXU"/>
                                     <constraint firstItem="cAk-u5-wnK" firstAttribute="centerX" secondItem="5qh-x9-a31" secondAttribute="centerX" id="Wws-OT-fjl"/>
                                     <constraint firstItem="1BS-D8-zXD" firstAttribute="top" secondItem="5qh-x9-a31" secondAttribute="top" constant="91" id="YOJ-Vl-WEm"/>
                                     <constraint firstAttribute="bottom" secondItem="1BS-D8-zXD" secondAttribute="bottom" constant="90" id="eYl-Ru-p4G"/>
                                     <constraint firstItem="Aut-Jc-Nxn" firstAttribute="top" secondItem="1BS-D8-zXD" secondAttribute="bottom" constant="50" id="ejn-8A-ApP"/>
                                     <constraint firstItem="cAk-u5-wnK" firstAttribute="top" secondItem="5qh-x9-a31" secondAttribute="top" id="fgk-NQ-yUD"/>
-                                    <constraint firstItem="drx-bi-1Of" firstAttribute="top" secondItem="1BS-D8-zXD" secondAttribute="bottom" constant="46" id="hGy-yj-rQh"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -280,11 +271,12 @@
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="collectionView" destination="1BS-D8-zXD" id="vcj-eZ-dz1"/>
+                        <segue destination="afY-Rw-u8Q" kind="show" identifier="postProfile" id="bsW-EZ-Lqg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ANQ-mK-6sU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1839" y="-121"/>
+            <point key="canvasLocation" x="1953" y="-13"/>
         </scene>
         <!--Create Post View Controller-->
         <scene sceneID="K2V-gD-QsH">
@@ -851,6 +843,6 @@
         <image name="simplenexus-icon" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tes-rk-jzd"/>
+        <segue reference="bsW-EZ-Lqg"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,7 +7,8 @@
 //
 import UIKit
 import MapKit
-
+import Firebase
+import FirebaseDatabase
 
 
 class PostViewController: UIViewController {
@@ -28,6 +29,8 @@ class PostViewController: UIViewController {
         super.viewDidLoad()
         
         fillPostInfo()
+        fillUserInfo()
+        
         //MapView
         let distanceSpan:CLLocationDegrees = 2000
         let sjsuLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(37.3351874, -121.88107150000002)
@@ -42,6 +45,32 @@ class PostViewController: UIViewController {
             postTitle.text! = post.title!
             postDescription.text! = post.theDescription!
             postPicture.downloadImage(from: post.pathToImage)
+    }
+    
+    
+    func fillUserInfo(){
+        let uid = post.userID!
+        let ref = FIRDatabase.database().reference()
+        ref.child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let dictionary = snapshot.value as?  [String: AnyObject]{
+                self.userName.text = dictionary["name"] as? String
+                
+                let databaseProfilePic = dictionary["profilePicture"] as? String
+                let data = NSData(contentsOf: NSURL(string: databaseProfilePic!) as! URL)
+                self.setProfilePicture(imageView: self.userPicture, imageToSet: UIImage(data:data! as Data)!)
+                
+            }
+        })
+        ref.removeAllObservers()
+        
+    }
+    
+    internal func setProfilePicture(imageView: UIImageView, imageToSet: UIImage){
+        imageView.layer.cornerRadius = 70.0
+        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.masksToBounds = true
+        imageView.image = imageToSet
     }
     
     

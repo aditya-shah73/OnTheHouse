@@ -116,6 +116,25 @@ class AccountViewController: UIViewController, UINavigationControllerDelegate, U
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("COUNT")
+        print(posts.count)
+        print(indexPath.row)
+        print(self.posts[indexPath.row])
+        performSegue(withIdentifier: "postFromAccount", sender: self.posts[indexPath.row])
+    }
+    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? PostViewController{
+            if let post = sender as? Post{
+                //send the selected post to the PostViewVC
+                destination.post = post
+            }
+
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return posts.count

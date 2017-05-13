@@ -550,11 +550,12 @@
                         <outlet property="_name" destination="MxR-uO-sUs" id="kbs-bS-1wL"/>
                         <outlet property="collectionView" destination="J5A-10-8mC" id="aXJ-Kh-60N"/>
                         <outlet property="profileImage" destination="58H-Wc-gwk" id="5gU-nE-a1b"/>
+                        <segue destination="afY-Rw-u8Q" kind="show" identifier="postFromAccount" id="tes-rk-jzd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XmM-j1-HWj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1613.5999999999999" y="1011.9940029985008"/>
+            <point key="canvasLocation" x="1484" y="1134"/>
         </scene>
         <!--Post View Controller-->
         <scene sceneID="ubK-Jj-VYy">
@@ -675,7 +676,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xJC-GG-Mhi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2330" y="995"/>
+            <point key="canvasLocation" x="2490" y="1135"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="2FT-aV-5hg">
@@ -849,4 +850,7 @@
         <image name="city" width="327" height="154"/>
         <image name="simplenexus-icon" width="1024" height="1024"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="tes-rk-jzd"/>
+    </inferredMetricsTieBreakers>
 </document>

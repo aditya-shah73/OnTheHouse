@@ -53,6 +53,7 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("selected : " , self.posts[indexPath.row])
         //sender is the post that is selected
+        print(self.posts[indexPath.row])
         performSegue(withIdentifier: "postProfile", sender: self.posts[indexPath.row])
     }
     

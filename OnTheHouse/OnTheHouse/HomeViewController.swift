@@ -71,13 +71,15 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
                                     if let description = post["description"] as? String,
                                         let postID = post["postID"] as? String,
                                         let pathToImage = post["pathToImage"] as? String,
-                                        let title = post["title"] as? String {
+                                        let title = post["title"] as? String,
+                                        let location = post["location"] as? String{
                                         
                                         thePost.theDescription = description
                                         thePost.postID = postID
                                         thePost.pathToImage = pathToImage
                                         thePost.title = title
                                         thePost.userID = uid
+                                        thePost.location = location
                                         
                                         self.posts.append(thePost)
                                     }

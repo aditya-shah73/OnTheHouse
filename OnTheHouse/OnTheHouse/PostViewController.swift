@@ -19,6 +19,8 @@ class PostViewController: UIViewController {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var postTitle: UILabel!
     @IBOutlet weak var postDescription: UITextView!
+    var theCoordinates: CLLocationCoordinate2D?
+
     
     
     //The current post that is being displayed
@@ -30,14 +32,7 @@ class PostViewController: UIViewController {
         
         fillPostInfo()
         fillUserInfo()
-        
-        //MapView
-        let distanceSpan:CLLocationDegrees = 2000
-        let sjsuLocation: CLLocationCoordinate2D = CLLocationCoordinate2DMake(37.3351874, -121.88107150000002)
-        mapView.setRegion(MKCoordinateRegionMakeWithDistance(sjsuLocation, distanceSpan, distanceSpan), animated: true)
-        
-        let sjsuPin = Annotations(title: "San Jose State University", subtitle: "Subtitle", coordinate: sjsuLocation)
-        mapView.addAnnotation(sjsuPin)
+        fillMapInfo()
     }
     
     
@@ -47,6 +42,22 @@ class PostViewController: UIViewController {
             postPicture.downloadImage(from: post.pathToImage)
     }
     
+    func fillMapInfo(){
+        let location = post.location
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(location! as String) { (placemarks, error) in
+            if let placemarks = placemarks {
+                if placemarks.count != 0 {
+                    let annotation = MKPlacemark(placemark: placemarks.first!)
+                    let location = MKPlacemark(placemark: placemarks.first!).location
+                    self.theCoordinates = location!.coordinate
+                    
+                    self.mapView.setRegion(MKCoordinateRegionMakeWithDistance(self.theCoordinates!, 2000, 2000), animated: true)
+                    self.mapView.addAnnotation(annotation)
+                }
+            }
+        }
+    }
     
     func fillUserInfo(){
         let uid = post.userID!

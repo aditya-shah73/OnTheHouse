@@ -72,7 +72,8 @@ class CreatePostViewController: UIViewController,UINavigationControllerDelegate,
                                 "pathToImage" : url.absoluteString,
                                 "title" : self.titleText.text!,
                                 "description": self.descriptionText.text!,
-                                "postID" : key] as [String : Any]
+                                "postID" : key,
+                                "location" : self.locationText.text] as [String : Any]
                     
                     let postFeed = ["\(key)" : feed]
                     ref.child("posts").updateChildValues(postFeed)
@@ -89,8 +90,7 @@ class CreatePostViewController: UIViewController,UINavigationControllerDelegate,
     
     
     @IBAction func getLocation(_ sender: UIButton) {
-       //let location: NSString = "\(locationText)" as NSString
-        let location = locationText.text
+        let location = self.locationText.text
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(location! as String) { (placemarks, error) in
             if let placemarks = placemarks {
@@ -111,12 +111,6 @@ class CreatePostViewController: UIViewController,UINavigationControllerDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-
-
-
-    
-    
 
 
 }

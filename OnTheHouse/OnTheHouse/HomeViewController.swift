@@ -18,7 +18,7 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
         super.viewDidLoad()
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,6 +40,12 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "createPost")
         self.present(vc!, animated: true, completion: nil)
     }
+    
+    @IBAction func messagesButtonPressed(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "messageLog")
+        self.present(vc!, animated: true, completion: nil)
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection_cell", for: indexPath) as! CollectionViewCell

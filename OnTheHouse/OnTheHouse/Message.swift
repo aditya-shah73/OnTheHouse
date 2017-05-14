@@ -11,6 +11,6 @@ import UIKit
 class Message: NSObject{
     var fromID: String?
     var toID: String?
-    var timestamp: String?
+    var timestamp: NSNumber?
     var text: String?
 }

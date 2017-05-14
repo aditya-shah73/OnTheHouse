@@ -13,30 +13,30 @@ class UserCell: UITableViewCell {
     
     var message: Message? {
         didSet {
-//            if let toId = message?.toID {
-//                let ref = FIRDatabase.database().reference().child("users").child(toID)
-//                ref.observeSingleEvent(of: .value, with: { (snapshot) in
-//                    
-//                    if let dictionary = snapshot.value as? [String: AnyObject] {
-//                        self.textLabel?.text = dictionary["name"] as? String
-//                        
-//                        if let profileImageUrl = dictionary["profileImageUrl"] as? String {
-//                            self.profileImageView.loadImageUsingCacheWithUrlString(profileImageUrl)
-//                        }
-//                    }
-//                    
-//                }, withCancel: nil)
-//            }
+            if let toId = message?.toID {
+                let ref = FIRDatabase.database().reference().child("users").child(toId)
+                
+                ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                    
+                    if let dictionary = snapshot.value as? [String: AnyObject] {
+                        self.textLabel?.text = dictionary["name"] as? String
+                        
+                        if let profileImageUrl = dictionary["profilePicture"] as? String {
+                            self.profileImageView.downloadImage(from: profileImageUrl)
+                        }
+                    }
+                })
+            }
             
-//            detailTextLabel?.text = message?.text
+            detailTextLabel?.text = message?.text
             
-//            if let seconds = message?.timestamp? {
-//                let timestampDate = Date(TimeInterval: seconds)
-//                
-//                let dateFormatter = DateFormatter()
-//                dateFormatter.dateFormat = "hh:mm:ss a"
-//                timeLabel.text = dateFormatter.string(from: timestampDate)
-//            }
+            if let seconds = message?.timestamp?.doubleValue{
+                let timestampDate = Date(timeIntervalSince1970: seconds)
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "hh:mm:ss a"
+                timeLabel.text = dateFormatter.string(from: timestampDate)
+            }
             
             
         }

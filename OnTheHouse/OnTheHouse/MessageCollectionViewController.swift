@@ -30,6 +30,8 @@ class MessageCollectionViewController: UICollectionViewController, UICollectionV
 
         // Do any additional setup after loading the view.
     }
+    
+    
 
     @IBAction func sendButtonPressed(_ sender: Any) {
         

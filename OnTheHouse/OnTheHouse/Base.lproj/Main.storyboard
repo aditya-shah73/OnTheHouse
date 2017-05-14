@@ -201,7 +201,7 @@
                                                 <rect key="frame" x="273" y="884" width="70" height="40"/>
                                                 <state key="normal" title="Messages"/>
                                                 <connections>
-                                                    <segue destination="fyJ-yP-0Hg" kind="show" id="38G-yR-Jds"/>
+                                                    <action selector="messagesButtonPressed:" destination="YZ9-57-Ljz" eventType="touchUpInside" id="ATS-4F-E8t"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -486,18 +486,44 @@
         <!--Message Log View Controller-->
         <scene sceneID="9xP-UQ-lJv">
             <objects>
-                <tableViewController id="fyJ-yP-0Hg" customClass="MessageLogViewController" customModule="OnTheHouse" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="messageLog" id="fyJ-yP-0Hg" customClass="MessageLogViewController" customModule="OnTheHouse" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="NW5-sE-MeI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="87W-XZ-yvk">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y6t-Ye-xNo">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <items>
+                                        <navigationItem title="Messages" id="Y7b-Wn-YL9">
+                                            <barButtonItem key="leftBarButtonItem" title="Back" id="bdi-Yk-c08">
+                                                <connections>
+                                                    <action selector="backButtonPressed:" destination="fyJ-yP-0Hg" id="ebh-HE-vY1"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </navigationItem>
+                                    </items>
+                                </navigationBar>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gX4-m3-xUu">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="98" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gX4-m3-xUu" id="n5R-1t-OIV">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Y0-Jd-cbL">
+                                            <rect key="frame" x="0.0" y="-9" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        </navigationBar>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -509,7 +535,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NzM-Xb-3yZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3460" y="-5"/>
+            <point key="canvasLocation" x="3460" y="29"/>
         </scene>
         <!--Account View Controller-->
         <scene sceneID="8FG-7Y-P9h">

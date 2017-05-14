@@ -7,17 +7,22 @@
 //
 
 import UIKit
+import MapKit
 import Firebase
+import CoreLocation
 import FirebaseDatabase
 import FirebaseStorage
 
 class CreatePostViewController: UIViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var titleText: UITextField!
     @IBOutlet weak var descriptionText: UITextView!
+    @IBOutlet weak var locationText: UITextField!
+    var theCoordinates: CLLocationCoordinate2D?
     
     @IBAction func importImage(_ sender: Any) {
         let image = UIImagePickerController()
@@ -83,13 +88,35 @@ class CreatePostViewController: UIViewController,UINavigationControllerDelegate,
     }
     
     
+    @IBAction func getLocation(_ sender: UIButton) {
+       //let location: NSString = "\(locationText)" as NSString
+        let location: NSString = "384 Herrick Ave San Jose CA, 95123"
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(location as String) { (placemarks, error) in
+            if let placemarks = placemarks {
+                if placemarks.count != 0 {
+                    let annotation = MKPlacemark(placemark: placemarks.first!)
+                    let location = MKPlacemark(placemark: placemarks.first!).location
+                    self.theCoordinates = location!.coordinate
+                    
+                    self.mapView.setRegion(MKCoordinateRegionMakeWithDistance(self.theCoordinates!, 2000, 2000), animated: true)
+                    
+                    self.mapView.addAnnotation(annotation)
+                }
+            }
+            
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
+
+
+
+    
+    
 
 
 }

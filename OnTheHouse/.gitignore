@@ -1,4 +1,6 @@
 .DS_Store
 OnTheHouse.zip
 OnTheHouse 2.zip
-OnTheHouse.xcworkspace/xcuserdata/administrator.xcuserdatad/UserInterfaceState.xcuserstate
+
+
+xcworkspace/xcuserdata/*

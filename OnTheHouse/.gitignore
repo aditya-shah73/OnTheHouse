@@ -3,4 +3,6 @@ OnTheHouse.zip
 OnTheHouse 2.zip
 
 
-xcworkspace/xcuserdata/*
+*.xcuserstate
+project.xcworkspace/
+xcuserdata/

@@ -25,7 +25,6 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
         super.viewWillAppear(true)
         posts.removeAll()
         fetchPosts()
-        
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {

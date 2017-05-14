@@ -16,4 +16,5 @@ class Post : NSObject {
     var postID : String?
     var title : String?
     var userID : String?
+    var location : String?
 }

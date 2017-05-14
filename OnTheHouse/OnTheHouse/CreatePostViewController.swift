@@ -90,9 +90,9 @@ class CreatePostViewController: UIViewController,UINavigationControllerDelegate,
     
     @IBAction func getLocation(_ sender: UIButton) {
        //let location: NSString = "\(locationText)" as NSString
-        let location: NSString = "384 Herrick Ave San Jose CA, 95123"
+        let location = locationText.text
         let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(location as String) { (placemarks, error) in
+        geocoder.geocodeAddressString(location! as String) { (placemarks, error) in
             if let placemarks = placemarks {
                 if placemarks.count != 0 {
                     let annotation = MKPlacemark(placemark: placemarks.first!)

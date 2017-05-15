@@ -37,7 +37,7 @@ class PostViewController: UIViewController {
     @IBAction func messageUserPressed(_ sender: Any) {
         performSegue(withIdentifier: "message", sender: self.user)
     }
-    @IBOutlet weak var categoryPicker: UIPickerView!
+
     
     func fillPostInfo(){
             postTitle.text! = post.title!
@@ -47,11 +47,7 @@ class PostViewController: UIViewController {
 
     var user = User()
 
-    func fillCategoryPicker(){
-        categoryPicker.numberOfRows(inComponent: 5)
-        
-        categoryPicker.rowSize(forComponent: 50)
-    }
+
     func fillMapInfo(){
         let location = post.location
         let geocoder = CLGeocoder()

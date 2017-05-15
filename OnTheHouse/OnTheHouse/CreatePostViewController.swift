@@ -24,6 +24,8 @@ class CreatePostViewController: UIViewController,UINavigationControllerDelegate,
     @IBOutlet weak var locationText: UITextField!
     var theCoordinates: CLLocationCoordinate2D?
     
+    @IBOutlet weak var pickerView: UIPickerView!
+    
     @IBAction func importImage(_ sender: Any) {
         let image = UIImagePickerController()
         image.delegate = self

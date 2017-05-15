@@ -13,7 +13,7 @@ class UserCell: UITableViewCell {
     
     var message: Message? {
         didSet {
-            
+            setUpNameandPicture()
             detailTextLabel?.text = message?.text
             
             if let seconds = message?.timestamp?.doubleValue{
@@ -28,29 +28,28 @@ class UserCell: UITableViewCell {
     
     private func setUpNameandPicture(){
         
-        let chatPartnerID : String?
+        var id : String?
         
-        if message?.fromID == FIRAuth.auth()?.currentUser?.uid {
-            chatPartnerID = message?.toID
+        if message!.fromID! == FIRAuth.auth()?.currentUser!.uid{
+            id = message!.toID
         }
         else{
-            chatPartnerID = message?.fromID
+            id = message!.fromID
         }
         
-        if let id  = chatPartnerID {
-            let ref = FIRDatabase.database().reference().child("users").child(id)
+        
+        let ref = FIRDatabase.database().reference().child("users").child(id!)
+        
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
             
-            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                self.textLabel?.text = dictionary["name"] as? String
                 
-                if let dictionary = snapshot.value as? [String: AnyObject] {
-                    self.textLabel?.text = dictionary["name"] as? String
-                    
-                    if let profileImageUrl = dictionary["profilePicture"] as? String {
-                        self.profileImageView.downloadImage(from: profileImageUrl)
-                    }
+                if let profileImageUrl = dictionary["profilePicture"] as? String {
+                    self.profileImageView.downloadImage(from: profileImageUrl)
                 }
-            })
-        }
+            }
+        })
         
        
     }

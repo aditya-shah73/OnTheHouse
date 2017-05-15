@@ -30,21 +30,33 @@ class MessageCollectionViewController: UICollectionViewController, UICollectionV
 
         // Do any additional setup after loading the view.
     }
-    
+
     
 
     @IBAction func sendButtonPressed(_ sender: Any) {
         
         let ref = FIRDatabase.database().reference().child("messages")
         let childRef = ref.childByAutoId()
-        let uid = FIRAuth.auth()?.currentUser?.uid
+        let fromID = FIRAuth.auth()?.currentUser?.uid
         let timestamp = NSDate.timeIntervalSinceReferenceDate
         let values = ["text": self.textField.text!,
                       "toID" : toUser.uid!,
-                      "fromID" : uid,
+                      "fromID" : fromID,
                       "timestamp" : timestamp] as [String : Any]
         
-        childRef.updateChildValues(values)
+        childRef.updateChildValues(values) { (error, ref) in
+            if error != nil{
+                print(error ?? "")
+                return
+            }
+            
+            let userMessageRef = FIRDatabase.database().reference().child("user-messages").child(fromID!)
+            let messageID = childRef.key
+            userMessageRef.updateChildValues([messageID : 1])
+            
+            let recipientUserMessageRef = FIRDatabase.database().reference().child("user-messages").child(self.toUser.uid!)
+            recipientUserMessageRef.updateChildValues([messageID: 1])
+        }
         
         self.textField.text = ""
     }

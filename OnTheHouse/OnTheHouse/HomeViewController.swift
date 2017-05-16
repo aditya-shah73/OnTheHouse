@@ -46,6 +46,10 @@ class HomeViewController: UIViewController , UICollectionViewDelegate, UICollect
         self.present(vc!, animated: true, completion: nil)
     }
     
+    @IBAction func categoriesButtonPressed(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "categories")
+        self.present(vc!, animated: true, completion: nil)
+    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection_cell", for: indexPath) as! CollectionViewCell

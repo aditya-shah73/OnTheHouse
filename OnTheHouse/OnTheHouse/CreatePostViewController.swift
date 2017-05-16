@@ -13,8 +13,7 @@ import CoreLocation
 import FirebaseDatabase
 import FirebaseStorage
 
-class CreatePostViewController: UIViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-
+class CreatePostViewController: UIViewController,UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet var imageView: UIImageView!
@@ -24,7 +23,28 @@ class CreatePostViewController: UIViewController,UINavigationControllerDelegate,
     @IBOutlet weak var locationText: UITextField!
     var theCoordinates: CLLocationCoordinate2D?
     
-    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var categoryTextField: UILabel!
+    @IBOutlet weak var categoryPicker: UIPickerView!
+    
+    let categoryPickerValues = ["Furniture", "Books", "Clothes", "Car Parts", "Utensils"]
+    
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+        return categoryPickerValues.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categoryPickerValues[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        categoryTextField.text = "Category: " + categoryPickerValues[row]
+//        self.view.endEditing(true)
+    }
+    
     
     @IBAction func importImage(_ sender: Any) {
         let image = UIImagePickerController()
@@ -75,7 +95,7 @@ class CreatePostViewController: UIViewController,UINavigationControllerDelegate,
                                 "title" : self.titleText.text!,
                                 "description": self.descriptionText.text!,
                                 "postID" : key,
-                                "location" : self.locationText.text] as [String : Any]
+                                "location" : self.locationText.text!] as [String : Any]
                     
                     let postFeed = ["\(key)" : feed]
                     ref.child("posts").updateChildValues(postFeed)
@@ -112,7 +132,11 @@ class CreatePostViewController: UIViewController,UINavigationControllerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        categoryPicker.delegate = self
+        categoryPicker.dataSource = self
+        
+        
     }
-
 
 }

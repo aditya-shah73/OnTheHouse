@@ -974,20 +974,14 @@
                                                 </constraints>
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="The Description of the item goes here. " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kp0-aa-Zrk">
-                                                <rect key="frame" x="0.0" y="380" width="375" height="193"/>
+                                                <rect key="frame" x="31" y="410" width="312" height="102"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="375" id="G7P-QA-gyY"/>
+                                                    <constraint firstAttribute="width" constant="312" id="G7P-QA-gyY"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mWu-Fl-h9g">
-                                                <rect key="frame" x="0.0" y="595" width="375" height="156"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="156" id="ro8-9R-UAM"/>
-                                                </constraints>
-                                            </mapView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Couch" translatesAutoresizingMaskIntoConstraints="NO" id="ISi-JC-14h">
                                                 <rect key="frame" x="7" y="0.0" width="361" height="219"/>
                                                 <constraints>
@@ -1007,27 +1001,22 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NPJ-Oc-Vr0">
-                                                <rect key="frame" x="23" y="802" width="329" height="134"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                            </pickerView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95J-4V-Apq">
-                                                <rect key="frame" x="166" y="759" width="42" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mWu-Fl-h9g">
+                                                <rect key="frame" x="31" y="539" width="312" height="196"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="196" id="ro8-9R-UAM"/>
+                                                </constraints>
+                                            </mapView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="Bzt-d4-qBc" secondAttribute="bottom" constant="641" id="7me-Yq-4Zv"/>
-                                            <constraint firstAttribute="trailing" secondItem="mWu-Fl-h9g" secondAttribute="trailing" id="8jL-nG-taD"/>
+                                            <constraint firstAttribute="trailing" secondItem="mWu-Fl-h9g" secondAttribute="trailing" constant="32" id="8jL-nG-taD"/>
                                             <constraint firstAttribute="trailing" secondItem="cMq-vz-VyN" secondAttribute="trailing" constant="236" id="A6s-3v-yjr"/>
-                                            <constraint firstItem="kp0-aa-Zrk" firstAttribute="top" secondItem="oxX-f6-Pzs" secondAttribute="top" constant="380" id="B1E-1B-6KU"/>
+                                            <constraint firstItem="kp0-aa-Zrk" firstAttribute="top" secondItem="oxX-f6-Pzs" secondAttribute="top" constant="410" id="B1E-1B-6KU"/>
                                             <constraint firstItem="Bzt-d4-qBc" firstAttribute="leading" secondItem="oxX-f6-Pzs" secondAttribute="leading" constant="184" id="B1N-Ew-Kmm"/>
                                             <constraint firstItem="Bzt-d4-qBc" firstAttribute="top" secondItem="oxX-f6-Pzs" secondAttribute="top" constant="329" id="GWT-b4-6Y1"/>
-                                            <constraint firstAttribute="bottom" secondItem="kp0-aa-Zrk" secondAttribute="bottom" constant="427" id="PqJ-bS-pzh"/>
+                                            <constraint firstAttribute="bottom" secondItem="kp0-aa-Zrk" secondAttribute="bottom" constant="488" id="PqJ-bS-pzh"/>
                                             <constraint firstItem="6dh-U6-Orh" firstAttribute="leading" secondItem="oxX-f6-Pzs" secondAttribute="leading" constant="115" id="PrV-Ek-dlb"/>
                                             <constraint firstAttribute="trailing" secondItem="6dh-U6-Orh" secondAttribute="trailing" constant="17" id="SN3-Uk-alF"/>
                                             <constraint firstItem="Bzt-d4-qBc" firstAttribute="top" secondItem="x21-hb-QTi" secondAttribute="bottom" constant="-5" id="Un3-hG-AKA"/>
@@ -1044,7 +1033,7 @@
                                             <constraint firstItem="x21-hb-QTi" firstAttribute="leading" secondItem="oxX-f6-Pzs" secondAttribute="leading" constant="115" id="ioB-Rj-2Fh"/>
                                             <constraint firstAttribute="trailing" secondItem="x21-hb-QTi" secondAttribute="trailing" constant="17" id="lia-J5-ZYn"/>
                                             <constraint firstAttribute="trailing" secondItem="ISi-JC-14h" secondAttribute="trailing" constant="7" id="oIH-Q6-SSW"/>
-                                            <constraint firstItem="mWu-Fl-h9g" firstAttribute="top" secondItem="oxX-f6-Pzs" secondAttribute="top" constant="595" id="scb-Kd-DT1"/>
+                                            <constraint firstItem="mWu-Fl-h9g" firstAttribute="top" secondItem="oxX-f6-Pzs" secondAttribute="top" constant="539" id="scb-Kd-DT1"/>
                                             <constraint firstItem="cMq-vz-VyN" firstAttribute="leading" secondItem="oxX-f6-Pzs" secondAttribute="leading" constant="7" id="uYy-sQ-car"/>
                                         </constraints>
                                     </view>
@@ -1088,7 +1077,7 @@
         <scene sceneID="SFb-dG-ZPT">
             <objects>
                 <collectionViewController id="oCO-P9-fit" customClass="MessageCollectionViewController" customModule="OnTheHouse" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="wnO-si-rup">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="wnO-si-rup">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1099,7 +1088,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <view key="backgroundView" contentMode="scaleToFill" id="n0F-wx-SuJ">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <rect key="frame" x="0.0" y="-64" width="375" height="667"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zaY-yf-SBF">
@@ -1347,6 +1336,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tes-rk-jzd"/>
-        <segue reference="w77-qX-baw"/>
+        <segue reference="txM-0z-jwt"/>
     </inferredMetricsTieBreakers>
 </document>

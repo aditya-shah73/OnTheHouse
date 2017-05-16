@@ -37,6 +37,7 @@ class PostViewController: UIViewController {
     @IBAction func messageUserPressed(_ sender: Any) {
         performSegue(withIdentifier: "message", sender: self.user)
     }
+
     
     func fillPostInfo(){
             postTitle.text! = post.title!
@@ -46,7 +47,7 @@ class PostViewController: UIViewController {
 
     var user = User()
 
-    
+
     func fillMapInfo(){
         let location = post.location
         let geocoder = CLGeocoder()
